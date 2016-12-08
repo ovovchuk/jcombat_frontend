@@ -1,0 +1,25 @@
+.login-container {
+  width: 90%;
+  max-width: 320px;
+}
+
+md-input {
+  width: 100%;
+}
+
+.login-button-container {
+  text-align: right !important;
+  margin-top: 15px;
+}
+
+.login-btn {
+  color: #c2c4ce;
+  background-color: #4c4c6a;
+}
+
+.login-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}

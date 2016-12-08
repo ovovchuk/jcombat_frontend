@@ -1,6 +1,6 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -10,6 +10,10 @@ import { AccountService } from "./shared/services/account.service";
 import { TokenService } from "./shared/services/token.service";
 import { HttpService } from "./shared/services/http.service";
 import { SimpleNotificationsModule } from "angular2-notifications";
+import { MdInputModule } from "@angular/material/input";
+import { MdButtonModule } from "@angular/material/button";
+import { MdIconModule } from "@angular/material/icon";
+
 
 @NgModule({
   declarations: [
@@ -22,7 +26,15 @@ import { SimpleNotificationsModule } from "angular2-notifications";
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    SimpleNotificationsModule
+    SimpleNotificationsModule,
+    //TODO check if forms module is mandatory if ReactiveFormsModule exists
+    ReactiveFormsModule,
+    //Material modules
+    MdInputModule,
+    MdButtonModule,
+    //Did not use
+    MdIconModule
+
   ],
   providers: [
     AccountService,
