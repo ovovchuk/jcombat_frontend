@@ -100,8 +100,8 @@ export class TokenService {
 
   private getTokens(credentials: UsernamePasswordCredentials): Observable<string> {
     let grantType = `grant_type=password`;
-    let clientId = 'client_id=user_cred';
-    let scope = 'scope=read write';
+    let clientId = 'client_id=trustedClient';
+    let scope = 'scope=read write trust';
     let username = `username=${credentials.username}`;
     let password = `password=${credentials.password}`;
 
