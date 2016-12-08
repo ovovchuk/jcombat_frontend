@@ -27,9 +27,9 @@ export class AccountService {
       this.httpService.get(url).subscribe(
         response => {
           if (response.ok) {
-            let account = this.createAccountFromJson(response.json());
-            observer.next(account);
-            observer.complete();
+            // let account = this.createAccountFromJson(response.json());
+            // observer.next(account);
+            // observer.complete();
           } else {
             observer.error(accountCreationError);
           }
@@ -67,9 +67,6 @@ export class AccountService {
   }
 
   public logout(): void {
-    this.tokenService.revokeRefreshToken().subscribe(
-      () => null
-    );
     this.deleteAccountFromLocalStorage();
     this.tokenService.deleteTokensFromStorage();
   }
@@ -80,30 +77,27 @@ export class AccountService {
     return regExp.test(credentials.username) && regExp.test(credentials.password);
   }
 
-  private createAccountFromJson(user: any): Account {
-    let account: Account = new Account(
-      user.ldapId,
-      user.fullName,
-      user.email,
-      this.tokenService.authorities
-    );
-    localStorage.setItem(this.STORAGE_KEY, account.toString());
-    return account;
-  }
+  // private createAccountFromJson(user: any): Account {
+  //   // let account: Account = new Account(
+  //   //   user.ldapId,
+  //   //   user.fullName,
+  //   //   user.email,
+  //   //   this.tokenService.authorities
+  //   // );
+  //   localStorage.setItem(this.STORAGE_KEY, account.toString());
+  //   return account;
+  // }
 
-  public getAccount(): Account {
-    return new Account(JSON.parse(localStorage.getItem(this.STORAGE_KEY)));
-  }
+  // public getAccount(): Account {
+  //   return new Account(JSON.parse(localStorage.getItem(this.STORAGE_KEY)));
+  // }
 
   private deleteAccountFromLocalStorage(): void {
     localStorage.removeItem(this.STORAGE_KEY);
     this.account = null;
   }
 
-  public getRoutes(): Array<string> {
-    let route = [];
-    this.getAccount().authorities.forEach(a=>route = routes[a.authority]?route.concat(routes[a.authority]):route);
-    //noinspection TypeScriptUnresolvedFunction
-    return Array.from(new Set(route));
+  getAccount() {
+    return undefined;
   }
 }

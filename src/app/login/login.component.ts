@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
-import { NotificationsService } from "angular2-notifications";
 import { Validators, FormControl, FormGroup } from "@angular/forms";
 import { AppError } from "../shared/app-error";
 import { AccountService } from "../shared/services/account.service";
+import { NotificationsService } from "angular2-notifications";
 
 @Component({
   selector: 'wjc-login',
@@ -58,10 +58,7 @@ export class LoginComponent implements OnInit {
         },
         (error: AppError) => this.notificationService.error('Error', error.message),
         () => {
-          if (!!this.accountService.getRoutes()[0])
-            this.router.navigate([this.accountService.getRoutes()[0]]);
-          else
-            this.notificationService.info('Info', 'User is not admin');
+            this.router.navigate(["/main"]);
         })
   }
 }
