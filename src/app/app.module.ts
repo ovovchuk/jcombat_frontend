@@ -11,13 +11,15 @@ import { TokenService } from "./shared/services/token.service";
 import { HttpService } from "./shared/services/http.service";
 import { SimpleNotificationsModule } from "angular2-notifications";
 import { MaterialModule } from "@angular/material";
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    MainComponent
+    MainComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,

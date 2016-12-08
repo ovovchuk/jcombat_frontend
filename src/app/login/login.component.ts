@@ -33,6 +33,10 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  singUp(){
+    this.router.navigate(["signup"])
+  }
+
   isValidOrPristine(controlName: string): boolean {
     return this.form.controls[controlName].valid
       || this.form.controls[controlName].pristine;
