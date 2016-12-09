@@ -13,6 +13,11 @@ import { SimpleNotificationsModule } from "angular2-notifications";
 import { MaterialModule } from "@angular/material";
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { WebSocketService } from "./shared/services/web-socket.service";
+import { TopNavComponent } from "./top-nav/top-nav.component";
+import { SideBarComponent } from "./side-bar/side-bar.component";
+import { QuestionManagementComponent } from './question-management/question-management.component';
+import { SessionsComponent } from './sessions/sessions.component';
+import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 
 
 @NgModule({
@@ -20,7 +25,12 @@ import { WebSocketService } from "./shared/services/web-socket.service";
     AppComponent,
     LoginComponent,
     MainComponent,
-    SignUpComponent
+    SignUpComponent,
+    TopNavComponent,
+    SideBarComponent,
+    QuestionManagementComponent,
+    SessionsComponent,
+    LeaderboardComponent
   ],
   imports: [
     BrowserModule,

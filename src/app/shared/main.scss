@@ -64,10 +64,27 @@ body{
   color: #c2c4ce !important;
   background-color: #4c4c6a !important;
 }
+
+.affix-top {
+  z-index: 10;
+  background-color: #fff;
+  position: fixed;
+  left: 225px;
+  right: 0;
+  margin-top: -10px;
+  padding: 10px 10px 0 10px;
+}
+
+.affix-bottom {
+  margin-top: 80px;
+}
+
+
 /*==========================================================*/
 
 // BS Admin 2.0
-$topnav-background-color: #222;
+$topnav-background-color: #1976D2;
+$side-background-color: #448AFF;
 .user-avatar {
   border: 3px solid #FFF;
   -webkit-border-radius: 50%;
@@ -151,7 +168,7 @@ a:hover {
   border: none;
   border-radius: 0;
   overflow-y: auto;
-  background-color: $topnav-background-color;
+  background-color: $side-background-color;
   bottom: 0;
   overflow-x: hidden;
   padding-bottom: 40px;
@@ -162,21 +179,21 @@ a:hover {
   transition: all 0.2s ease-in-out;
   .list-group {
     a.list-group-item {
-      background: $topnav-background-color;
+      background: $side-background-color;
       border: 0;
       border-radius: 0;
-      color: #999;
+      color: #BBDEFB;
       text-decoration: none;
     }
     a.list-group-item i {
       padding-right: 10px;
     }
     a:hover {
-      background: darken($topnav-background-color, 5%);
+      background: darken($side-background-color, 5%);
       color: #fff;
     }
     a.router-link-active {
-      background: darken($topnav-background-color, 5%);
+      background: darken($side-background-color, 5%);
       color: #fff;
     }
   }
@@ -193,7 +210,7 @@ a:hover {
         color: #999;
         text-decoration: none;
         font-weight: 400;
-        background: $topnav-background-color;
+        background: $side-background-color;
         span {
           position: relative;
           display: block;
@@ -208,7 +225,7 @@ a:hover {
       }
     }
     .panel-title:hover {
-      background: darken($topnav-background-color, 5%);
+      background: darken($side-background-color, 5%);
     }
     .panel-collapse {
       border-radious: 0;
@@ -216,7 +233,7 @@ a:hover {
       .panel-body {
         .list-group-item {
           border-radius: 0;
-          background-color: $topnav-background-color;
+          background-color: $side-background-color;
           border: 0 solid transparent;
           a {
             color: #999;
@@ -226,7 +243,7 @@ a:hover {
           }
         }
         .list-group-item:hover {
-          background: darken($topnav-background-color, 5%);
+          background: darken($side-background-color, 5%);
         }
       }
     }

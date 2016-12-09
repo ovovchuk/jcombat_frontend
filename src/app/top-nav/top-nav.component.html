@@ -1,0 +1,18 @@
+<nav class="navbar navbar-dark navbar-fixed-top topnav">
+  <div class="collapse navbar-toggleable-xs clearfix text-center">
+    <a class="navbar-brand" [routerLink]="['/main']">Java Combat</a>
+
+    <ul class="nav navbar-nav top-nav navbar-right pull-right top-right-nav">
+      <li class="nav-item">
+        <a id="single-button" class="nav-link-disabled nav-link">
+          <i class="fa fa-user"></i>{{account.firstName}} {{account.lastName}}
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="logout()">
+          <i class="fa fa-fw fa-power-off"></i>Log Out
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

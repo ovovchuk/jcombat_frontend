@@ -1,0 +1,24 @@
+<div class="affix-top">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 row header-container">
+    <div class="col-xs-9 col-sm-4 col-md-3 col-lg-6 col-xl-7">
+      <h2>Sessions</h2>
+    </div>
+    <div class="col-xs-12 col-sm-8 col-md-9 col-lg-6 col-xl-5 header-buttons-container">
+      <button class="btn btn-success">
+        <i class="fa fa-plus btn-icon"></i>Create Game
+      </button>
+    </div>
+  </div>
+  <div class="header-divider">
+    <hr style="width: 100%">
+  </div>
+</div>
+<div class="container-fluid affix-bottom">
+  <p><md-input type="text" placeholder="Session ID" [value]="sessionId" (input)="sessionId = $event.target.value"></md-input></p>
+  <p><button md-raised-button (click)="connect()" disableRipple="true" [disabled]="!isCanConnect()">CONNECT</button></p>
+  <p><button md-raised-button
+             (click)="send()" disableRipple="true"
+             [disabled]="!isCanSend()">SEND</button>
+  </p>
+  <p><button md-raised-button (click)="disconnect()" disableRipple="true" [disabled]="!isConnected">DISCONNECT</button></p>
+</div>

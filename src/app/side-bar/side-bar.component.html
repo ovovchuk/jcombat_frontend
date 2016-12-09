@@ -1,0 +1,31 @@
+<button class="btn btn-default" id="toggle-sidebar" type="button" (click)="eventCalled()">
+  &#9776;
+</button>
+<nav class="sidebar" [ngClass]="{'sidebarPushRight': isActive}">
+  <ul class="list-group">
+    <li>
+      <a [routerLink]="['/main']" routerLinkActive="router-link-active"
+         [routerLinkActiveOptions]="{exact: true}" (click)="hide()" class="list-group-item">
+        <i class="fa fa-th-list fa-lg"></i>Sessions
+      </a>
+    </li>
+    <li>
+      <a [routerLink]="['/main/leaderboard']" routerLinkActive="router-link-active"
+         [routerLinkActiveOptions]="{exact: true}" (click)="hide()" class="list-group-item">
+        <span><i class="fa fa-trophy fa-lg"></i>Leaderboard</span>
+      </a>
+    </li>
+    <li *ngIf="isVisible()" >
+      <a [routerLink]="['/main/questions']"
+         routerLinkActive="router-link-active"
+         [routerLinkActiveOptions]="{exact: true}" class="list-group-item" (click)="hide()">
+        <span><i class="fa fa-question-circle-o fa-lg"></i>Questions</span>
+      </a>
+    </li>
+    <li>
+      <a class="list-group-item log-out" (click)="logout()">
+        <span><i class="fa fa-power-off fa-lg"></i>Log Out</span>
+      </a>
+    </li>
+  </ul>
+</nav>

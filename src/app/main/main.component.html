@@ -1,10 +1,5 @@
-<h2>
-  Main works!
-</h2>
-<p><md-input type="text" placeholder="Session ID" [value]="sessionId" (input)="sessionId = $event.target.value"></md-input></p>
-<p><button md-raised-button (click)="connect()" disableRipple="true" [disabled]="!isCanConnect()">CONNECT</button></p>
-<p><button md-raised-button
-           (click)="send()" disableRipple="true"
-           [disabled]="!isCanSend()">SEND</button>
-</p>
-<p><button md-raised-button (click)="disconnect()" disableRipple="true" [disabled]="!isConnected">DISCONNECT</button></p>
+<top-nav></top-nav>
+<side-bar></side-bar>
+<section class="main-container" [ngClass]="{sidebarPushRight: isActive}">
+  <router-outlet></router-outlet>
+</section>
