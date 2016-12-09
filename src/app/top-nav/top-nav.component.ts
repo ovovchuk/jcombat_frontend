@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { AccountService } from "../shared/services/account.service";
-import { Account } from "../shared/entities/Account";
+import { Account } from "../shared/entities/account";
 
 @Component({
   selector: 'top-nav',

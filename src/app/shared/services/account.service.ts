@@ -5,7 +5,7 @@ import { AppProperties } from "../app.properties";
 import { AppError } from "../app-error";
 import { TokenService } from "./token.service";
 import { HttpService } from "./http.service";
-import { Account } from "../entities/Account";
+import { Account } from "../entities/account";
 
 @Injectable()
 export class AccountService {

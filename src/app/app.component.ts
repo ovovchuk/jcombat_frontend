@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AppProperties } from "./shared/app.properties";
 
 @Component({
   selector: 'wjc-root',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app works!';
+  options = AppProperties.NOTIFICATION_OPTIONS;
 }

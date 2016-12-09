@@ -18,6 +18,9 @@ import { SideBarComponent } from "./side-bar/side-bar.component";
 import { QuestionManagementComponent } from './question-management/question-management.component';
 import { SessionsComponent } from './sessions/sessions.component';
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
+import { SessionItemComponent } from './sessions/session-item/session-item.component';
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { SessionService } from "./shared/services/session.service";
 
 
 @NgModule({
@@ -30,7 +33,8 @@ import { LeaderboardComponent } from './leaderboard/leaderboard.component';
     SideBarComponent,
     QuestionManagementComponent,
     SessionsComponent,
-    LeaderboardComponent
+    LeaderboardComponent,
+    SessionItemComponent
   ],
   imports: [
     BrowserModule,
@@ -38,13 +42,15 @@ import { LeaderboardComponent } from './leaderboard/leaderboard.component';
     AppRoutingModule,
     SimpleNotificationsModule,
     ReactiveFormsModule,
-    MaterialModule.forRoot()
+    MaterialModule.forRoot(),
+    NgbModule.forRoot()
   ],
   providers: [
     AccountService,
     TokenService,
     HttpService,
-    WebSocketService
+    WebSocketService,
+    SessionService
   ],
   bootstrap: [AppComponent]
 })
