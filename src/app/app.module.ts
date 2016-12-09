@@ -12,6 +12,7 @@ import { HttpService } from "./shared/services/http.service";
 import { SimpleNotificationsModule } from "angular2-notifications";
 import { MaterialModule } from "@angular/material";
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { WebSocketService } from "./shared/services/web-socket.service";
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { SignUpComponent } from './sign-up/sign-up.component';
   providers: [
     AccountService,
     TokenService,
-    HttpService
+    HttpService,
+    WebSocketService
   ],
   bootstrap: [AppComponent]
 })

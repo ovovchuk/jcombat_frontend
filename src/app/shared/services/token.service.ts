@@ -10,6 +10,9 @@ import { Authority } from "../entities/authority";
 
 @Injectable()
 export class TokenService {
+  private static AUTH_ENDPOINT = AppProperties.AUTH_ENDPOINT;
+  private static AUTH_HASH = AppProperties.CLIENT_AUTH_HASH;
+
   private accessToken: string;
   private refreshToken: string;
   private tokenType: string;
@@ -106,26 +109,24 @@ export class TokenService {
     let password = `password=${credentials.password}`;
 
     let body = encodeURI(`${grantType}&${clientId}&${scope}&${username}&${password}`);
-    let url = AppProperties.AUTH_ENDPOINT;
 
-    return this.http.post(url, body, {headers: TokenService.getHeadersForTokenRequest()})
+    return this.http.post(TokenService.AUTH_ENDPOINT, body, {headers: TokenService.getHeadersForTokenRequest()})
       .map(response => response.text());
   }
 
   private getTokensFromRefreshToken(refreshToken: string): Observable<string> {
-    let url = AppProperties.AUTH_ENDPOINT;
     let grantType = 'grant_type=refresh_token';
     let refreshTokenParam = `refresh_token=${refreshToken}`;
 
     let body = `${grantType}&${refreshTokenParam}`;
 
-    return this.http.post(url, body, {headers: TokenService.getHeadersForTokenRequest()})
+    return this.http.post(TokenService.AUTH_ENDPOINT, body, {headers: TokenService.getHeadersForTokenRequest()})
       .map(response => response.text());
   }
 
   private static getHeadersForTokenRequest(): Headers {
     let headers = new Headers();
-    headers.append(HttpHeaders.AUTHORIZATION, `Basic ${AppProperties.CLIENT_AUTH_HASH}`);
+    headers.append(HttpHeaders.AUTHORIZATION, `Basic ${TokenService.AUTH_HASH}`);
     headers.append(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_FORM_URLENCODED);
 
     return headers;
