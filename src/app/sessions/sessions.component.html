@@ -59,15 +59,15 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngIf="sessions == undefined">
+        <tr *ngIf="sessions == undefined || sessions.length == 0">
           <th colspan=5>No data to display!</th>
         </tr>
         <tr *ngFor="let session of sessions; let i = index">
           <th scope="row">{{i + 1}}</th>
-          <td>{{session.name}}</td>
-          <td>Test</td>
+          <td>{{session?.name}}</td>
+          <td>{{session?.user1?.firstName}} {{session?.user1?.lastName}}</td>
           <td>
-            <button class="btn btn-success">
+            <button class="btn btn-success" (click)="joinSession(session)">
               <i class="fa fa-plus btn-icon"></i>Join
             </button>
           </td>

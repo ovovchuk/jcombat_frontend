@@ -7,6 +7,8 @@ import { SignUpComponent } from "./sign-up/sign-up.component";
 import { LeaderboardComponent } from "./leaderboard/leaderboard.component";
 import { SessionsComponent } from "./sessions/sessions.component";
 import { QuestionManagementComponent } from "./question-management/question-management.component"
+import { AdminGuard } from "./shared/admin-guard";
+import { SessionItemComponent } from "./sessions/session-item/session-item.component";
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'main' },
@@ -14,7 +16,8 @@ const routes: Routes = [
     children: [
       { path: '', component: SessionsComponent, canActivate: [AuthGuard] },
       { path: 'leaderboard', component: LeaderboardComponent, canActivate: [AuthGuard] },
-      { path: 'questions', component: QuestionManagementComponent, canActivate: [AuthGuard]}
+      { path: 'questions', component: QuestionManagementComponent, canActivate: [AuthGuard, AdminGuard] },
+      { path: 'session/:id', component: SessionItemComponent, canActivate: [AuthGuard] }
     ] },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignUpComponent }

@@ -22,7 +22,7 @@ export class AccountService {
         'auth/creation-failure',
         'Error appeared during account creation please try again later');
 
-      let url = `${AppProperties.API_SERVER}/me`;
+      let url = `${AppProperties.API_SERVER}/accounts/me`;
 
       this.httpService.get(url).subscribe(
         response => {
@@ -79,12 +79,14 @@ export class AccountService {
 
   private createAccountFromJson(user: any): Account {
     let account: Account = new Account(
+      user.id,
       user.username,
       user.firstName,
       user.lastName,
       user.dateCreated,
       user.dateModified,
-      this.tokenService.authorities
+      this.tokenService.authorities,
+      user.enabled
     );
     localStorage.setItem(this.STORAGE_KEY, JSON.stringify(account));
     return account;

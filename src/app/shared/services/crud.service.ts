@@ -2,14 +2,14 @@ import { HttpService } from "./http.service";
 import { Observable } from "rxjs";
 import { MediaType } from "../media-type";
 
-export abstract class CrudService<T> {
+export abstract class CrudService<W,T> {
 
   constructor(protected httpService: HttpService) {
   }
 
   protected abstract getUrl(): string;
 
-  public findAll(): Observable<T[]> {
+  public findAll(): Observable<W> {
     return this.httpService.get(this.getUrl()).map(response => response.json());
   }
 
