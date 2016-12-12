@@ -1,3 +1,37 @@
-<p>
-  session-item works!
-</p>
+<div class="affix-top">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 row header-container">
+    <div class="col-xs-9 col-sm-4 col-md-3 col-lg-6 col-xl-7">
+      <h2>Session: {{session?.name}}</h2>
+    </div>
+  </div>
+  <div class="header-divider">
+    <hr style="width: 100%">
+  </div>
+  <div class="row">
+    <div class="col-sm-5">{{session?.user1?.firstName}} {{session?.user1?.lastName}}</div>
+    <div class="col-sm-2 text-sm-center">VS</div>
+    <div class="col-sm-5 text-sm-right">{{session?.user2?.firstName}} {{session?.user2?.lastName}}</div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 text-sm-left">{{userHealth1}}</div>
+    <div class="col-sm-6 text-sm-right">{{userHealth2}}</div>
+  </div>
+</div>
+<div class="container-fluid affix-question-bottom">
+  <div class="row">
+    <div class="col-sm-12">
+      <md-card>
+        <md-card-title-group>
+          <md-card-title>{{question?.question}}</md-card-title>
+        </md-card-title-group>
+        <md-card-actions>
+          <div class="answers-container">
+            <div class="row answer-item" *ngFor="let answer of question?.answers">
+              <button md-button>{{answer?.answer}}</button>
+            </div>
+          </div>
+        </md-card-actions>
+      </md-card>
+    </div>
+  </div>
+</div>
